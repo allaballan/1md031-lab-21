@@ -1,1 +1,65 @@
-/*empty*/
+
+/* This is how you comment in ATOM */
+
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+@media screen and (max-width: 800px) {
+    h1 {
+        font-size: 6vw;
+    }
+}
+
+body {
+font-family: "Times New Roman", Times, serif; /* font-size: 12px; */
+background-color: violet;
+}
+.makebold {
+      font-weight: bold;
+}
+
+#idname {
+   text-transform: uppercase;
+}
+header h1 {
+  position: absolute;
+}
+.BURGER {
+  /* background-color: Black; color: White; */
+  margin:20px;
+  padding: 20px;
+  border: 2px dashed "ff0000";
+  opacity: 0.6;
+  color: white;
+  background-color: green;
+}
+#Contact {
+
+}
+
+.wrapper {
+  display: grid;
+  grid-template-columns: 200px 200px 200px 200px;
+  background-color: orange;
+  color: pink;
+}
+.box {
+  background-color: #444;
+  color: #fff;
+  border-radius: 5px;
+  padding: 20px;
+  font-size: 150%;
+}
+
+
+button:hover {
+  background-color: red;
+}
+
+.BURGERTOWN {
+  margin: 50px;
+  padding: 20px;
+  border: 2px dashed #ff0000;
+}
+
+.button-margin {
+  margin: 1px;
+}

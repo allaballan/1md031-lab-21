@@ -10,7 +10,7 @@
 
 body {
 font-family: "Times New Roman", Times, serif; /* font-size: 12px; */
-background-color: violet;
+background-color: beige;
 }
 .makebold {
       font-weight: bold;
@@ -37,12 +37,16 @@ header h1 {
 
 .wrapper {
   display: grid;
-  grid-template-columns: 200px 200px 200px 200px;
+  grid-gap: 10px;
+  margin-left: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  grid-template-columns: 300px 300px 300px 300px;
   background-color: orange;
   color: pink;
 }
 .box {
-  background-color: #444;
+  background-color: green;
   color: #fff;
   border-radius: 5px;
   padding: 20px;

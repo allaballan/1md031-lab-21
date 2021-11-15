@@ -1,0 +1,13 @@
+
+// Menu JSON
+
+[
+
+  {
+    "name": "Ostburgare",
+    "kCal": 1000,
+    "lactose": true,
+    "gluten": false,
+    "img": "url"
+  }
+]

@@ -2,7 +2,7 @@
   <div>
     Burgers
     <Burger v-for="burger in burgers"
-            v-bind:burger="burger" 
+            v-bind:burger="burger"
             v-bind:key="burger.name"/>
   </div>
   <div id="map" v-on:click="addOrder">
@@ -16,12 +16,27 @@ import io from 'socket.io-client'
 
 const socket = io();
 
+function MenuItem (name, kCal, image, intolerant) {
+this.burger= name;
+this.url = image;
+this.kalories = kCal;
+this.allergi = intolerant;
+}
+
+const burgers = [
+New MenuItem =  ("Swedish MEATBALLMANIA", 1000, "/img/bulle.jpg", "gluten" ),
+New MenuItem =  ( name: "INSANITY BURGER", kCal: 2000, url: "/img/insane.jpg", lactose: false, gluten: false ),
+New MenuItem =  ( name: "CHICKEN ALLAN KING", kCal: 1200, url: "/img/chicken.jpg", lactose: false, gluten: true )
+]
+
+console.log(burgers)
+
 export default {
   name: 'Home',
   components: {
     Burger
   },
-  data: function () {
+  data: burgers (name, kCal, image, intolerant) {
     return {
       burgers: [ {name: "small burger", kCal: 250},
                  {name: "standard burger", kCal: 450},

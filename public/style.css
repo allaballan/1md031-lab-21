@@ -10,7 +10,8 @@
 
 body {
 font-family: "Times New Roman", Times, serif; /* font-size: 12px; */
-background-color: beige;
+background-color: "white";
+background-position: left;
 }
 .makebold {
       font-weight: bold;
@@ -24,12 +25,13 @@ header h1 {
 }
 .BURGER {
   /* background-color: Black; color: White; */
-  margin:20px;
-  padding: 20px;
-  border: 2px dashed "ff0000";
+  margin:10px;
+  padding: 10px;
+  border: 2px dashed yellow;
   opacity: 0.6;
   color: white;
   background-color: green;
+  width: 500;
 }
 #Contact {
 
@@ -41,16 +43,16 @@ header h1 {
   margin-left: 10px;
   padding-top: 10px;
   padding-bottom: 10px;
-  grid-template-columns: 300px 300px 300px 300px;
+  grid-template-columns: 280px 280px 280px 280px;
   background-color: orange;
   color: pink;
 }
 .box {
   background-color: green;
   color: #fff;
-  border-radius: 5px;
+  border-radius: 10px;
   padding: 20px;
-  font-size: 150%;
+  font-size: 100%;
 }
 
 
@@ -62,6 +64,7 @@ button:hover {
   margin: 50px;
   padding: 20px;
   border: 2px dashed #ff0000;
+  background-color: orange;
 }
 
 .button-margin {

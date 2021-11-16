@@ -1,0 +1,13 @@
+
+// Menu JSON
+
+[
+
+  {
+    "name": "CHICKEN ALLAN KING",
+    "kCal": 1200,
+    "lactose": true,
+    "gluten": false,
+    "img": /1md031-lab-21/public/img"
+  }
+]

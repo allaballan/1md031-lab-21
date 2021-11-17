@@ -1,13 +1,27 @@
 
-// Menu JSON
 
 [
+  {
+    "name": "Swedish MEATBALLMANIA",
+    "kCal": 1000,
+    "lactose": false,
+    "gluten": true,
+    "img": "/../img/bulle.jpg"
+  },
 
   {
-    "name": "CHICKEN ALLAN KING",
-    "kCal": 1200,
+    "name": "INSANITY BURGER",
+    "kCal": 2000,
     "lactose": true,
     "gluten": false,
-    "img": /1md031-lab-21/public/img"
+    "img": "/../img/insane.jpg"
+  },
+
+  {
+      "name": "CHICKEN ALLAN KING",
+      "kCal": 1200,
+      "lactose": false,
+      "gluten": true,
+      "img": "/../img/chicken.jpg"
   }
 ]

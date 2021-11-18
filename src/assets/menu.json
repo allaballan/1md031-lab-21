@@ -2,11 +2,12 @@
 
 [
   {
-    "name": "Swedish MEATBALLMANIA",
+    "name": "MEATBALLMANIA",
     "kCal": 1000,
     "lactose": false,
     "gluten": true,
-    "img": "/../img/bulle.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS7PUHTfcYzUuTH7XH3clC63VvnEYpaIjhYNQ&usqp=CAU",
+    "line1": "Top seller"
   },
 
   {
@@ -14,14 +15,16 @@
     "kCal": 2000,
     "lactose": true,
     "gluten": false,
-    "img": "/../img/insane.jpg"
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSiT3yJkn-Pvk5v-IpjIXKMDkWFiAJaShh6Wg&usqp=CAU",
+    "line1": "Second best seller"
   },
 
   {
-      "name": "CHICKEN ALLAN KING",
-      "kCal": 1200,
-      "lactose": false,
-      "gluten": true,
-      "img": "/../img/chicken.jpg"
+    "name": "CHICKEN KING",
+    "kCal": 1200,
+    "lactose": false,
+    "gluten": true,
+    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1Xj6PIeboy3DjYb8yfC4-feXmBWt5KF2UFA&usqp=CAU",
+    "line1": "Third best burger"
   }
 ]

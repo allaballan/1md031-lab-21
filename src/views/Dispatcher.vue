@@ -6,8 +6,6 @@
 
         {{ order.burgerOrdered }} <br> {{order}}
 
-
-
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
     </div>

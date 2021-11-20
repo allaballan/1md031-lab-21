@@ -48,6 +48,7 @@ export default {
       this.$emit("burgerOrdered", {
         name: this.burger.name,
         amount: this.orderedAmount,
+        location: {x: 0, y: 0}
       });
     },
     plusBurger: function() {

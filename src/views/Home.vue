@@ -128,7 +128,7 @@ export default {
     return {
       burgers: menu,
       drone: "",
-      burgerOrdered:{MEATBALLMANIA: 0, INSANITYBURGER: 0, CHICKENKING: 0},
+      burgerOrdered:{},
       location: {x: 0, y: 0},
       ordered: "",
       firstname: "",

@@ -4,7 +4,11 @@
       <div v-for="(order, key) in orders" v-bind:key="'order'+key">
         #{{ key }}:
 
-        {{ order.orderItems.join(", ") }}
+        MEATBALLMANIA: amount: {{}}
+
+
+
+        {{ order.orderItems }} <br> {{order}}
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
     </div>
@@ -40,6 +44,7 @@ export default {
 }
 </script>
 <style>
+
 #orderList {
   top:1em;
   left:1em;

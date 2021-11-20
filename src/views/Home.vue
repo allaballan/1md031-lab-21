@@ -1,4 +1,5 @@
 <template>
+  <title> WELCOME TO ALLANS BIG BUNS</title>
 
   <header class="header">
     <h1> Welcome to the burgerplace of your dreams </h1>
@@ -8,8 +9,7 @@
 
   <main>
     <section class="decide">
-      <h2> Choose the burger of your dreams </h2>
-      <h3> This is where you choose your burger </h3>
+      <h2> This is where you choose your burger </h2>
       <nav> <b>Menu items</b>
       </nav>
 
@@ -30,18 +30,16 @@
       <p>
         <label for="lastname">Last</label><br>
         <input type="text" id="lastname" v-model="lastname" placeholder="Last name">
-      </p>"
-      <p>
-        <label for="Street">Street</label><br>
-        <input type="Street" id="street" v-model="sn" required="required" placeholder="Street adress">
       </p>
+
       <p>
-        <label for="House">House</label><br>
-        <input type="number" id="house number" v-model="hn" required="required" placeholder="House number">
+        <label for="email">Email</label><br>
+        <input type="text" id="email" v-model="email" placeholder="Email adress">
       </p>
+
       <p>
-        <label for="Payment">Payment</label>
-        <select id="Payment" v-model="rcp">
+        <label for="payment">Payment</label>
+        <select id="cash" v-model="rcp">
           <option selected="selected">Visa</option>
           <option>Mastercard</option>
           <option>American Express</option>
@@ -75,10 +73,10 @@
 
     <br>
 
-      <button v-on:click = "submiter" type = "submit">
-        <p> Click here to place your order</p>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FUSPzuaNQqKbZXG8V1Ijk7RYCZaP4kB78Q&usqp=CAU">
-      </button>
+    <button v-on:click = "submiter" type = "submit">
+      <p> Click here to place your order</p>
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FUSPzuaNQqKbZXG8V1Ijk7RYCZaP4kB78Q&usqp=CAU">
+    </button>
 
   </main>
   <hr>
@@ -96,6 +94,8 @@ import io from 'socket.io-client'
 import menu from '../assets/menu.json'
 
 const socket = io();
+
+document.title = 'WELCOME TO ALLANS BIG BUNS';
 
 /*
 function MenuItem (name, kCal, image, gluten, lactose) {
@@ -115,6 +115,7 @@ new MenuItem ( "CHICKEN ALLAN KING", 1200,  "/../img/chicken.jpg",  false, true 
 console.log()
 
 /* Maybe add a form component */
+
 export default {
   name: 'Home',
   components: {
@@ -124,8 +125,15 @@ export default {
     return {
       burgers: menu,
       drone: "",
-      burgerOrdered: [],
+      burgerOrdered: {MEATBALLMANIA: 0,},
       location: "",
+      female: "",
+      ordered: "",
+      firstname: "",
+      lastname: "",
+      email: "",
+      male: "",
+      rcp: "",
 
     }
   },
@@ -144,7 +152,7 @@ export default {
     setLocation: function (event) {
       const offset = event.target.getBoundingClientRect();
       this.location.x = event.clientX - offset.left - 10;
-      this.location.x = event.clientX - offset.top - 10;
+      this.location.y = event.clientY - offset.top - 10;
 
     },
 
@@ -155,7 +163,7 @@ export default {
               x: this.location.x,
               y: this.location.y
             },
-            orderItems: ["Beans", "Curry"]
+            orderItems: [this.burgerOrdered]
           },
       );
     },
@@ -190,7 +198,7 @@ export default {
 }
 
 body {
-  font-family: "Times New Roman", Times, serif; /* font-size: 12px; */
+  font-family: Courier New; /* font-size: 12px; */
   background-color: white;
   background-position: left;
 }
@@ -202,13 +210,13 @@ header img{
 }
 
 .pinfo {
-  background-color: orange;
-  color: white;
-  font-size: 10px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
   margin: 10px 10px 10px 10px;
   border: 2px dashed black;
   padding-left: 10px;
-  width: 1000px
+  width: 100%;
 }
 
 header h1 {
@@ -248,20 +256,19 @@ button:hover {
 }
 
 #wrap {
-  width: auto;
-  height: 500px;
+  height: 200px;
+  width: 700px;
   overflow:scroll;
-  position: relative;
+  border-color: yellow;
 }
 
 #T {
   position: absolute;
   color: black;
   border-radius: 10px;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   color: pink;
 }
-
 
 </style>

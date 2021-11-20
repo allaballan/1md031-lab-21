@@ -10,9 +10,11 @@
         <ul>
           <li>{{ burger.kCal }} kCal</li>
           <li> {{burger.lactose}}</li>
-          <li> {{burger.gluten}}</li>
+          <li> {{burger.gluten}} </li>
           <li>{{ burger.line1 }}</li>
-          <li>Amount ordered: {{this.orderedAmount}}</li>
+          <br>
+          <p>
+            Amount ordered: {{this.orderedAmount}}</p>
         </ul>
 
         <button v-on:click = "plusBurger" class = "mas">
@@ -86,6 +88,7 @@ button {
   margin-left: 5px;
   width: 50px;
   height: 50px;
+  align-content: center;
 }
 
 .mas {

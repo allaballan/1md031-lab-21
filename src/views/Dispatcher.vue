@@ -4,11 +4,10 @@
       <div v-for="(order, key) in orders" v-bind:key="'order'+key">
         #{{ key }}:
 
-        MEATBALLMANIA: amount: {{}}
+        {{ order.burgerOrdered }} <br> {{order}}
 
 
 
-        {{ order.orderItems }} <br> {{order}}
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
     </div>

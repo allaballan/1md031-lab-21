@@ -21,7 +21,7 @@
       </div>
     </section>
 
-    <section class="pinfo">
+    <section class="information">
       <h2> Please provide with delivery information </h2>
       <h3> This is where you provide us with necessary information </h3>
 
@@ -63,17 +63,20 @@
       </div>
     </section>
 
-    <label>  </label>
+    <label> Klicka på kartan för önskad leverans! </label>
     <div id = "wrap">
-      <div id = "map" v-on:click="setLocation"></div>
-      <div id ="T" v-bind:style="{left:location.x + 'px', top: location.y + 'px'}">
+      <div id = "map" v-on:click="setLocation">
+      <div v-bind:style="{left:location.x + 'px',
+                          top: location.y + 'px'}">
         T
+
       </div>
+    </div>
     </div>
 
     <br>
 
-    <button v-on:click = "submiter" type = "submit">
+    <button v-on:click = "submitOrder" type = "submit">
       <p> Click here to place your order</p>
       <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ2FUSPzuaNQqKbZXG8V1Ijk7RYCZaP4kB78Q&usqp=CAU">
     </button>
@@ -119,20 +122,18 @@ console.log()
 export default {
   name: 'Home',
   components: {
-    Burger
+    Burger,
   },
   data: function () {
     return {
       burgers: menu,
       drone: "",
-      burgerOrdered: {MEATBALLMANIA: 0,},
-      location: "",
-      female: "",
+      burgerOrdered:{MEATBALLMANIA: 0, INSANITYBURGER: 0, CHICKENKING: 0},
+      location: {x: 0, y: 0},
       ordered: "",
       firstname: "",
       lastname: "",
       email: "",
-      male: "",
       rcp: "",
 
     }
@@ -140,13 +141,13 @@ export default {
 
   methods: {
 
-    getOrderNumber: function () {
-      return Math.floor(Math.random() * 100000);
-    },
-
     addToOrder: function (event) {
       this.burgerOrdered[event.name] = event.amount;
       console.log(this.burgerOrdered)
+    },
+
+    getOrderNumber: function () {
+      return Math.floor(Math.random() * 100000);
     },
 
     setLocation: function (event) {
@@ -156,34 +157,43 @@ export default {
 
     },
 
-    submiter: function () {
+    submitOrder: function () {
       socket.emit("addOrder", {
             orderId: this.getOrderNumber(),
             details: {
               x: this.location.x,
               y: this.location.y
             },
-            orderItems: [this.burgerOrdered]
+            orderItems: [this.burgerOrdered],
+            information: {
+              name: this.name,
+              email: this.email,
+              firstname: this.firstname,
+              payment: this.payment,
+              lastname: this.lastname,
+              drone: this.drone,
+              rcp: this.rcp
+            }
+
+          },
+      );
+      console.log([this.firstname, this.email, this.rcp, this.drone, this.burgerOrdered, this.ordered])
+    },
+    addOrder: function (event) {
+      var offset = {x: event.currentTarget.getBoundingClientRect().left,
+        y: event.currentTarget.getBoundingClientRect().top};
+      socket.emit("addOrder", { orderId: this.getOrderNumber(),
+            details: { x: event.clientX - 10 - offset.x,
+              y: event.clientY - 10 - offset.y },
+            /*orderItems: ["Beans", "Curry"],*/
           },
       );
     },
-    addOrder: function (event) {
-      var offset = {
-        x: event.currentTarget.getBoundingClientRect().left,
-        y: event.currentTarget.getBoundingClientRect().top
-      };
-      socket.emit("addOrder", {
-            orderId: this.getOrderNumber(),
-            details: {
-              x: event.clientX - 10 - offset.x,
-              y: event.clientY - 10 - offset.y
-            },
-            orderItems: ["Beans", "Curry"]
-          },
-      );
-    }
+
   }
+
 }
+
 
 
 </script>
@@ -209,7 +219,7 @@ header img{
   opacity: 0.6;
 }
 
-.pinfo {
+.information {
   background-color: white;
   color: black;
   font-size: 15px;
@@ -253,6 +263,8 @@ button:hover {
   width: 1920px;
   height: 1078px;
   background: url("/img/polacks.jpg");
+  position: relative;
+
 }
 
 #wrap {
@@ -262,13 +274,13 @@ button:hover {
   border-color: yellow;
 }
 
-#T {
+#map div {
   position: absolute;
   color: black;
   border-radius: 10px;
-  width: 40px;
-  height: 40px;
-  color: pink;
+  font-weight: bolder;
+  font-size: 20px;
+  text-align: center;
 }
 
 </style>

@@ -9,12 +9,11 @@
         <img v-bind:src = "burger.image" class="bilder">
         <ul>
           <li>{{ burger.kCal }} kCal</li>
-          <li> {{burger.lactose}}</li>
-          <li> {{burger.gluten}} </li>
+          <li v-if = "burger.lactose" id = "lactose"> Contains <span> lactose </span></li>
+          <li v-if = "burger.gluten" id = "gluten"> Contains <span> gluten </span></li>
           <li>{{ burger.line1 }}</li>
           <br>
-          <p>
-            Amount ordered: {{this.orderedAmount}}</p>
+          <p> Amount ordered: {{orderedAmount}}</p>
         </ul>
 
         <button v-on:click = "plusBurger" class = "mas">
@@ -47,9 +46,8 @@ export default {
         this.orderedAmount = 0;
       }
       this.$emit("burgerOrdered", {
-        name:this.burger.name,
+        name: this.burger.name,
         amount: this.orderedAmount,
-        location: {x: 0, y: 0}
       });
     },
     plusBurger: function() {
@@ -57,7 +55,6 @@ export default {
       this.$emit("burgerOrdered", {
         name:this.burger.name,
         amount: this.orderedAmount,
-        location: {x: 0, y: 0}
       });
     }
   }
@@ -78,10 +75,6 @@ h4 {
   font-size: 2em !important;
   width: 100%;
   text-align: center;
-}
-
-.orders {
-  margin-left: 50px;
 }
 
 button {

@@ -2,10 +2,20 @@
   <div id="orders">
     <div id="orderList">
       <div v-for="(order, key) in orders" v-bind:key="'order'+key">
-        #{{ key }}:
-
-          <br> {{order}}
-
+        <h2 class = "yourOrder">  #{{ key }} </h2>
+        <p class="yourOrder"> Beställda burgare: </p>
+        {{order.orderItems}}
+        <br>
+        <p class="yourOrder"> Information </p>
+        {{order.information.firstname}}
+        {{order.information.lastname}},
+        <br>
+        {{order.information.email}},
+        <br>
+        {{order.information.rcp}},
+        <br>
+        {{order.information.gender}})
+        <br>
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
     </div>
@@ -78,6 +88,10 @@ export default {
   width:20px;
   height:20px;
   text-align: center;
+  font-weight: bold;
+}
+
+#yourOrder {
   font-weight: bold;
 }
 </style>

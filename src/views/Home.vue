@@ -1,5 +1,4 @@
 <template>
-  <title> WELCOME TO ALLANS BIG BUNS</title>
 
   <header class="header">
     <h1> Welcome to the burgerplace of your dreams </h1>
@@ -37,6 +36,18 @@
         <input type="text" id="email" v-model="email" placeholder="Email adress">
       </p>
 
+
+      <label> Klicka på kartan för önskad leverans! </label>
+      <div id = "wrap">
+        <div id = "map" v-on:click="setLocation">
+          <div v-bind:style="{left:location.x + 'px',
+                          top: location.y + 'px'}">
+            T
+
+          </div>
+        </div>
+      </div>
+
       <p>
         <label for="payment">Payment</label>
         <select id="cash" v-model="rcp">
@@ -49,30 +60,19 @@
       </p>
       <p>Gender:</p>
       <div>
-        <input type="radio" id="Female" v-model="drone" value="Female"
+        <input type="radio" id="Female" v-model="gender" value="Female"
                checked>
         <label for="Female">Female</label>
       </div>
       <div>
-        <input type="radio" id="Male" v-model="drone" value="Male">
+        <input type="radio" id="Male" v-model="gender" value="Male">
         <label for="Male">Male</label>
       </div>
       <div>
-        <input type="radio" id="Do not wish to provide" v-model="drone" value="Do not wish to provide">
+        <input type="radio" id="Do not wish to provide" v-model="gender" value="Do not wish to provide">
         <label for="Do not wish to provide">Do not wish to provide</label>
       </div>
     </section>
-
-    <label> Klicka på kartan för önskad leverans! </label>
-    <div id = "wrap">
-      <div id = "map" v-on:click="setLocation">
-      <div v-bind:style="{left:location.x + 'px',
-                          top: location.y + 'px'}">
-        T
-
-      </div>
-    </div>
-    </div>
 
     <br>
 
@@ -127,7 +127,7 @@ export default {
   data: function () {
     return {
       burgers: menu,
-      drone: "",
+      gender: "",
       burgerOrdered:{},
       location: {x: 0, y: 0},
       ordered: "",
@@ -171,13 +171,13 @@ export default {
               firstname: this.firstname,
               payment: this.payment,
               lastname: this.lastname,
-              drone: this.drone,
+              gender: this.gender,
               rcp: this.rcp
             }
 
           },
       );
-      console.log([this.firstname, this.email, this.rcp, this.drone, this.burgerOrdered, this.ordered])
+      console.log([this.firstname, this.email, this.rcp, this.gender, this.burgerOrdered, this.ordered])
     },
     addOrder: function (event) {
       var offset = {x: event.currentTarget.getBoundingClientRect().left,
@@ -214,29 +214,38 @@ body {
 }
 
 header img{
-  width: 100%;
+  width: 1300px;
+  margin: 20px;
   height: 300px;
   opacity: 0.6;
 }
 
 .information {
+  margin: 20px;
   background-color: white;
   color: black;
   font-size: 15px;
-  margin: 10px 10px 10px 10px;
   border: 2px dashed black;
   padding-left: 10px;
-  width: 100%;
+  width: 1285px;
 }
 
 header h1 {
+  margin: 100px;
   position: absolute;
   color: black;
+  text-align: center;
 }
 
 button {
+  margin: 20px;
   margin-top: 20px;
   margin-bottom: 10px;
+  width: 100px;
+}
+
+button img {
+  width: 70px;
 }
 
 button:hover {

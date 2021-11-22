@@ -4,7 +4,7 @@
       <div v-for="(order, key) in orders" v-bind:key="'order'+key">
         #{{ key }}:
 
-        {{ order.burgerOrdered }} <br> {{order}}
+          <br> {{order}}
 
       </div>
       <button v-on:click="clearQueue">Clear Queue</button>
@@ -42,14 +42,22 @@ export default {
 </script>
 <style>
 
+@import 'https://fonts.googleapis.com/css?family=Pacifico|Dosis';
+
+
 #orderList {
+  width: 400px;
   top:1em;
   left:1em;
   position: absolute;
   z-index: 2;
-  color:black;
   background: rgba(255,255,255, 0.5);
   padding: 1em;
+  font-weight: bold;
+  font-family: "Kristen ITC"; /* font-size: 12px; */
+  color: black;
+  text-underline-color: white;
+
 }
 #dots {
   position: relative;
@@ -70,5 +78,6 @@ export default {
   width:20px;
   height:20px;
   text-align: center;
+  font-weight: bold;
 }
 </style>

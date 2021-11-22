@@ -94,8 +94,8 @@ button {
 }
 
 .bilder {
-  height: 300px;
-  width: 300px;
+  height: 250px;
+  width: 250px;
 }
 
 </style>
